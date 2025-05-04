@@ -7,7 +7,7 @@ from edge_not_found_error import EdgeNotFoundError
 
 class Graph:
     """
-    Implementation of a graph in Python.
+    Implementation of a graph structure in Python.
     """
 
     def __init__(self, directed=False, weighted=True):
@@ -202,6 +202,20 @@ class Graph:
             degree += len(self.edges[vertex.label])
 
         return degree
+
+    def is_directed(self):
+        """
+        Checks if the graph is directed.
+        :return: True if the graph is directed.
+        """
+        return self.directed
+
+    def is_weighted(self):
+        """
+        Checks if the graph is weighted.
+        :return: True if the graph is weighted.
+        """
+        return self.weighted
 
     def is_connected(self):
         """
