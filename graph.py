@@ -111,7 +111,7 @@ class Graph:
     def degree(self, label):
         """
         Returns the degree of a vertex.
-        :param label: Label of vertex to find.
+        :param label: Label of vertex to get degree of.
         :return: Degree of the vertex if it exists.
         """
         degree = 0
@@ -228,7 +228,7 @@ class Graph:
 
     def is_connected(self):
         """
-        Checks if the entire graph is connected.
+        Checks if the entire graph is connected. Each vertex has at least one edge.
         :return: True if the entire graph is connected.
         """
         is_connected = True
@@ -243,7 +243,7 @@ class Graph:
 
     def is_simple(self):
         """
-        Checks if the graph is a simple graph.
+        Checks if the graph is a simple graph. No loops or parallel edges.
         :return: True if the graph is a simple graph.
         """
         simple = True
@@ -284,3 +284,34 @@ class Graph:
             complete = False
 
         return complete
+
+    def is_trivial(self):
+        """
+        Checks if the graph is a trivial graph. Only one vertex with no edges.
+        :return: True if the graph is trivial.
+        """
+        trivial = True
+        # Check that there is only one vertex
+        if len(self.vertices) != 1:
+            trivial = False
+        else:
+            # Check if there are no edges associated to the one vertex
+            for vertex in self.vertices:
+                # If the length is not zero, it cannot be trivial
+                if len(self.edges[vertex.label]) != 0:
+                    trivial = False
+
+        return trivial
+
+    def is_null(self):
+        """
+        Checks if the graph is a null graph. No vertices.
+        :return: True if the graph is a null graph.
+        """
+        null = False
+
+        # If no vertices then it is a null graph
+        if len(self.vertices) == 0:
+            null = True
+
+        return null
