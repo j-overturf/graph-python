@@ -80,6 +80,15 @@ class Graph:
         new_vertex = Vertex(label)
         self.vertices.append(new_vertex)
 
+    def add_vertices(self, labels):
+        """
+        Adds new vertices to the graph from an array of provided labels.
+        :param labels: List of labels to use on graph.
+        """
+        # Iterate through each label and add them
+        for label in labels:
+            self.add_vertex(label)
+
     def add_edge(self, source, dest, weight=None):
         """
         Adds a new edge to the graph.
